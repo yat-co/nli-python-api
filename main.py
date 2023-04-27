@@ -87,7 +87,7 @@ def encode_address_view():
                     )
                     return json_response(data={"encoded_point": encoded_point}, status=200)
             
-            return json_response(data={"error": "geo-code point"}, status=404)
+            return json_response(data={"error": res.reason}, status=404)
         except Exception:
             logger.error("failed to encode point", exc_info=True)
             return json_response(data={"error": "unable to parse point"}, status=404)

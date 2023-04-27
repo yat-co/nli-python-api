@@ -4,6 +4,9 @@ services:
     build: 
       context: .
       dockerfile: .Dockerfile
+      args:
+        - github_user=${GITHUB_USERNAME}
+        - github_key=${GITHUB_TOKEN}
     environment:
       - API_HOST=0.0.0.0
       - API_PORT=80
